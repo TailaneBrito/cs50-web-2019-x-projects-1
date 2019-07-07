@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Success!
+{% endblock %}
+
+{% block body %}
+    <h1>Success!</h1>
+
+    You have successfully logged in the page.
+	<ul>
+	{% for usr_id in login1 %}
+            <li>
+                <a href="{{ url_for('user_name', login=login.usr_id) }}">
+                    {{ login.usr_id }} to {{ login.usr_name }}
+                </a>
+            </li>
+    {% endfor %}
+	</ul>
+{% endblock %}

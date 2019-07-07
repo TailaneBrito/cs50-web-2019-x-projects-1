@@ -1,0 +1,6 @@
+CREATE TABLE books(
+	  isbn VARCHAR(10) UNIQUE PRIMARY KEY,
+	  title VARCHAR NOT NULL,
+	  author VARCHAR(60) NOT NULL,
+	  year CHAR(4) NOT NULL
+ );

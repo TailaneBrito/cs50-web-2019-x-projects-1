@@ -1,0 +1,60 @@
+<script type="text/javascript">
+
+  function checkPassword(str)
+  {
+    var re = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
+    return re.test(str);
+  }
+
+  function checkForm(form)
+  {
+    if(form.user_name.value == "") {
+      alert("Error: Username cannot be blank!");
+      form.user_name.focus();
+      return false;
+    }
+    re = /^\w+$/;
+    if(!re.test(form.user_name.value)) {
+      alert("Error: Username must contain only letters, numbers and underscores!");
+      form.user_name.focus();
+      return false;
+    }
+    if(form.pwd1.value != "" && form.pwd1.value == form.pwd2.value) {
+      if(!checkPassword(form.pwd1.value)) {
+        alert("The password you have entered is not valid!");
+        form.pwd1.focus();
+        return false;
+      }
+    } else {
+      alert("Error: Please check that you've entered and confirmed your password!");
+      form.pwd1.focus();
+      return false;
+    }
+    return true;
+  }
+
+</script>
+
+{% extends "layout.html" %}
+
+{% block title %}
+    Project 1 : Sing up
+{% endblock %}
+
+{% block body %}
+	<h3>Sing up</h3>
+	<form action="{{ url_for('registration') }}" method="post">
+
+        <div class="form-group">
+			<input class="form-control" name="user_name" placeholder="Email address">
+        </div>
+
+        <div class="form-group">
+            <input class="form-control" name="user_pass" placeholder="Password">
+        </div>
+
+        <div class="form-group">
+            <button class="btn btn-secundary">Sing up</button>
+        </div>
+
+    </form>

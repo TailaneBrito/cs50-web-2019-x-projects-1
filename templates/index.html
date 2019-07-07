@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Project 1 : Books
+{% endblock %}
+
+{% block body %}
+    <h3>Sing in</h3>
+
+    <form action="{{ url_for('login') }}" method="post">
+
+        <div class="form-group">
+			<input class="form-control" name="user_name" placeholder="Email address">
+        </div>
+
+        <div class="form-group">
+            <input class="form-control" name="user_pass" placeholder="Password">
+        </div>
+
+        <div class="form-group">
+            <button class="btn btn-primary">Login</button>
+        </div>
+
+    </form>
+	
+	
+    <h1>Account Access</h1>
+        <form method="POST" action="/login">
+            <p><label>User Name:</label> <input class="form-control" type="text" name="user_name" placeholder="user email address" required></p>
+            <p><label>Password:</label> <input class="form-control" type="password" name="user_pass" placeholder="Password" required></p>
+            <p><button class="btn btn-primary" type="submit">Sing In</button></p>
+        </form>
+
+        <h3>Sing up</h3>
+        <form action="{{ url_for('singup') }}" method="post">
+            <div class="form-group"><input class="form-control" name="user_name_su" placeholder="Email address"></div>
+            <div class="form-group"><input class="form-control" name="user_pass_su" placeholder="Password"></div>
+            <div class="form-group"><button class="btn btn-secundary">Sing up</button></div>
+        </form>
+
+{% endblock %}
